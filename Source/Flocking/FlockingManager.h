@@ -23,6 +23,6 @@ public:
 private:
 	UWorld* World;
 	bool initialized;
-	bool use_goal = true;
+	bool use_goal = false;
 	TArray<class AAgent*> Agents;
 };

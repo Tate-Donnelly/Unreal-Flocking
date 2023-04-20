@@ -1,7 +1,7 @@
 #include "FlockingManager.h"
 
 #define AGENT_COUNT 25
-#define DIST_APART 200
+#define DIST_APART 300
 #define SPEED_LIMIT FVector(25.0f)
 
 void UFlockingManager::Init(UWorld* world, UStaticMeshComponent* mesh) {
@@ -14,9 +14,9 @@ void UFlockingManager::Init(UWorld* world, UStaticMeshComponent* mesh) {
             FRotator rotation = FRotator();
 
             FVector location = FVector();
-            location.X = 150.f;
-            location.Y = FMath::Sin(incr * i) * 150.f;
-            location.Z = FMath::Cos(incr * i) * 150.f;
+          //location.X = 500.0f;
+            location.Y = FMath::Sin(incr * i) * 150.f + FMath::RandRange(-2000, 2000);
+            location.Z = FMath::Cos(incr * i) * 150.f + +FMath::RandRange(-2000, 2000);
 
             AAgent* agent = World->SpawnActor<AAgent>(location, rotation);
             agent->Init(mesh, i);
