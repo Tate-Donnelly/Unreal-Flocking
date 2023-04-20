@@ -14,9 +14,8 @@ void UFlockingManager::Init(UWorld* world, UStaticMeshComponent* mesh) {
             FRotator rotation = FRotator();
 
             FVector location = FVector();
-          //location.X = 500.0f;
-            location.Y = FMath::Sin(incr * i) * 150.f + FMath::RandRange(-2000, 2000);
-            location.Z = FMath::Cos(incr * i) * 150.f + +FMath::RandRange(-2000, 2000);
+            location.Y = FMath::Sin(incr * i) * 150.f + FMath::RandRange(-1000, 1000);
+            location.Z = FMath::Cos(incr * i) * 150.f + +FMath::RandRange(-1000, 1000);
 
             AAgent* agent = World->SpawnActor<AAgent>(location, rotation);
             agent->Init(mesh, i);
@@ -38,7 +37,6 @@ void UFlockingManager::Flock() {
         
 
         agent->Velocity += v1 + v2 + v3;
-        //UE_LOG(LogTemp, Warning, TEXT(FVector::ToString(agent->Velocity)));
         Goal(agent);
     }
 }
@@ -80,7 +78,6 @@ FVector UFlockingManager::Rule3(AAgent* b) {
 
     pv /= (Agents.Num() - 1);
     return (pv - b->Velocity) / 8;
-    //return FVector();
 }
 
 void UFlockingManager::Goal(AAgent* b) {
