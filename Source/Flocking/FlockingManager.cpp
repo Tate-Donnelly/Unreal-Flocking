@@ -82,15 +82,9 @@ FVector UFlockingManager::Rule3(AAgent* b) {
 
 void UFlockingManager::Goal(AAgent* b) {
     if(!use_goal) return;
-    FVector v = b->Velocity;
-    b->Velocity = FVector(CalculateSpeed(v.X, SPEED_LIMIT.X), CalculateSpeed(v.Y, SPEED_LIMIT.Y), CalculateSpeed(v.Z, SPEED_LIMIT.Z));
-
-}
-
-float UFlockingManager::CalculateSpeed(float velocity, float limit)
-{
-    if (FMath::Abs(velocity) > limit) {
-        return (velocity/ FMath::Abs(velocity))* limit;
+    int limit = 25;
+    if ((b->Velocity).GetAbs().Size() > limit) {
+        b->Velocity = ((b->Velocity) / (b->Velocity).GetAbs().Size()) * limit;
     }
-    return velocity;
 }
+

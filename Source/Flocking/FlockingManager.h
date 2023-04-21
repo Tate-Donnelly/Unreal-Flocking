@@ -18,7 +18,6 @@ public:
 	FVector Rule2(AAgent* b);
 	FVector Rule3(AAgent* b);
 	void Goal(AAgent* b);
-	float CalculateSpeed(float velocity, float limit);
 
 private:
 	UWorld* World;

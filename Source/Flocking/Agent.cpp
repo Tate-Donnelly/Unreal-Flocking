@@ -1,5 +1,5 @@
-#include "Kismet/KismetMathLibrary.h"
 #include "Agent.h"
+#include "Kismet/KismetMathLibrary.h"
 
 AAgent::AAgent() {
 	PrimaryActorTick.bCanEverTick = true;
